@@ -1,8 +1,8 @@
 package ConsoCarbone;
 
 /** Un objet ConsoCarbone
-@author Jenna JOURNO Shana BAROUKH
-@version 1.0
+ * @author Jenna JOURNO Shana BAROUKH
+ * @version 1.0
 */
 public class ConsoCarbone implements Comparable<ConsoCarbone>{
   protected final int id;
@@ -10,8 +10,8 @@ public class ConsoCarbone implements Comparable<ConsoCarbone>{
   private static int cpt;
 
   /** permet de comparer deux instances de ConsoCarbone en fonction de leur impact
-  @param c l'instance que l'on compare
-  @return 0 si c'est le même impact, 1 si l'impact de l'objet prit en parametre est inferieur et -1 si l'impact de l'objet prit en parametre est superieur
+   * @param c l'instance que l'on compare
+   * @return 0 si c'est le même impact, 1 si l'impact de l'objet prit en parametre est inferieur et -1 si l'impact de l'objet prit en parametre est superieur
   */
   public int compareTo(ConsoCarbone c){
     if (c.getImpact() == this.getImpact()){
@@ -25,19 +25,22 @@ public class ConsoCarbone implements Comparable<ConsoCarbone>{
     }
   }
 
-  /** renvoie l'id
-  @return valeur de l'id de l'objet
+  /** getter de l'id
+   * @return la valeur de l'id de l'objet
   */
   public int getId(){
     return id;
   }
 
+  /** setter de l'impact
+   * @param impact est l'impact de l'utilisateur en termes d’émissions de GES en TCO2eq
+   */
   public void setImpact(double impact){
     this.impact = impact;
   }
 
-  /** renvoie l'impact
-  @return valeur de l'impact de l'objet
+  /** getter de l'impact
+   * @return la valeur de l'impact de l'utilisateur
   */
   public double getImpact(){
     return impact;
@@ -50,12 +53,14 @@ public class ConsoCarbone implements Comparable<ConsoCarbone>{
   }
 
   /** methode toString
-  @return chaîne de caractères servant à décrire l'objet concerné
+   * @return chaine de caracteres servant a decrire l'objet concerne
   */
   public String toString(){
     return "L'impact est de " + this.impact + " TCO2eq. id=" + this.id + "\n";
   }
 
+  /** constructeur de la classe ConsoCarbone
+   */
   public ConsoCarbone(){
     cpt++;
     this.id = cpt;
