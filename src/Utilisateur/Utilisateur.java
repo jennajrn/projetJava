@@ -151,13 +151,13 @@ public class Utilisateur {
   }
 
   /** constructeur de la classe Utilisateur
-   * @param alimentation
-   * @param bienConso
-   * @param logement
-   * @param avion
-   * @param voiture
-   * @param trainEtBus
-   * @param services
+   * @param alimentation qui est un objet de la classe Alimentation
+   * @param bienConso qui est un objet de la classe BienConso
+   * @param logement qui est un objet de la classe Logement
+   * @param avion qui est un objet de la classe Avion
+   * @param voiture qui est un objet de la classe Voiture
+   * @param trainEtBus qui est un objet de la classe TrainEtBus
+   * @param services qui est un objet de la classe ServicesPublics
    */
   public Utilisateur(Alimentation alimentation, BienConso bienConso, Logement logement, Avion avion, Voiture voiture, TrainEtBus trainEtBus, ServicesPublics services){
     this.alimentation = alimentation;
