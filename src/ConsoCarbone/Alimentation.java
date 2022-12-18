@@ -12,7 +12,7 @@ public class Alimentation extends ConsoCarbone{
 	private double txVege; //valeur entre 0 et 1
 
 	/** setter de txBoeuf
-	 * @param txBoeuf qui est le taux de repas à base de boeuf
+	 * @param txBoeuf qui est le taux de repas a base de boeuf
 	 */
 	public void setTxBoeuf(double txBoeuf){
 		if (txBoeuf < 0 || txBoeuf > 1){
@@ -66,8 +66,8 @@ public class Alimentation extends ConsoCarbone{
 	//Constructeurs
 
 	/** constructeur de la classe Alimentation
-	 * @param txBoeuf
-	 * @param txVege
+	 * @param txBoeuf qui est le le taux de repas a base de boeuf
+	 * @param txVege qui est le le taux de repas vegetariens
 	 */
 	public Alimentation(double txBoeuf, double txVege){
 		super();

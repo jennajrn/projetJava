@@ -1,5 +1,7 @@
 package ConsoCarbone;
 
+/** L'enumeration Taille contient deux instances P et G correspondant a petite voiture et grosse voiture ainsi que l'émission nécessaire à la fabrication de la voiture (4.2 pour la petite et 19 pour la grosse)
+ */
 public enum Taille {P(4.2),G(19);
   private final double fabrication;
 

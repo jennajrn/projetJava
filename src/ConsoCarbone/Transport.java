@@ -1,8 +1,8 @@
 package ConsoCarbone;
 
 /** Un objet Transport est un ConsoCarbone qui calcule l’empreinte carbone concernant les déplacements
-@author Jenna JOURNO Shana BAROUKH
-@version 1.0
+ * @author Jenna JOURNO Shana BAROUKH
+ * @version 1.0
 */
 public abstract class Transport extends ConsoCarbone{
   protected int distance;

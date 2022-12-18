@@ -1,6 +1,9 @@
 package Utilisateur;
 import ConsoCarbone.*;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 /** Un objet Utilisateur permet de calculer et de détailler l'empreinte carbone de l'utilisateur
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
@@ -8,7 +11,8 @@ import ConsoCarbone.*;
 public class Utilisateur {
   private Alimentation alimentation;
   private BienConso bienConso;
-  private Logement logement;
+  //private Logement logement;
+  private ArrayList<Logement> logements;
   private Avion avion;
   private Voiture voiture;
   private TrainEtBus trainEtBus;
@@ -18,16 +22,24 @@ public class Utilisateur {
    * @return la valeur de l'empreinte carbone total de l'utilisateur
    */
   public double calculerEmpreinte(){
-    double empreinte = alimentation.getImpact() + bienConso.getImpact() + logement.getImpact() + avion.getImpact() + voiture.getImpact() + trainEtBus.getImpact() + services.getImpact();
+    double impactLogement = 0.0;
+    for (int i = 0; i<logements.size(); i++){
+      impactLogement = impactLogement + logements.get(i).getImpact();
+    }
+    double empreinte = alimentation.getImpact() + bienConso.getImpact() + impactLogement + avion.getImpact() + voiture.getImpact() + trainEtBus.getImpact() + services.getImpact();
     return empreinte;
   }
 
   /** affiche une description detaillee de l'empreinte carbone de l'utilisateur
    */
   public void detaillerEmpreinte(){
+    double impactLogement = 0.0;
+    for (int i = 0; i<logements.size(); i++){
+      impactLogement = impactLogement + logements.get(i).getImpact();
+    }
     System.out.println("L’empreinte carbone de l’utilisateur.rice concernant son alimentation est " + alimentation.getImpact() + " TCO2eq.");
     System.out.println("L’empreinte carbone de l’utilisateur.rice concernant ses dépenses en biens de consommation est " + bienConso.getImpact() + " TCO2eq.");
-    System.out.println("L’empreinte carbone de l’utilisateur.rice concernant son logement est " + logement.getImpact() + " TCO2eq.");
+    System.out.println("L’empreinte carbone de l’utilisateur.rice concernant son ou ses logement(s) est " + impactLogement + " TCO2eq.");
     System.out.println("L’empreinte carbone de l’utilisateur.rice concernant ses déplacements en voiture est " + voiture.getImpact() + " TCO2eq.");
     System.out.println("L’empreinte carbone de l’utilisateur.rice concernant ses déplacements en avion est " + avion.getImpact() + " TCO2eq.");
     System.out.println("L’empreinte carbone de l’utilisateur.rice concernant ses déplacements en train et en bus est " + trainEtBus.getImpact() + " TCO2eq.");
@@ -63,19 +75,22 @@ public class Utilisateur {
     return this.bienConso;
   }
 
-  /** setter de logement
-   * @param superficie qui est la superficie du logement de l'utilisateur
-   * @param ce qui est la classe energetique du logement de l'utilisateur
+  /** setter de logements
+   * @param superficies qui est une liste des superficies des logements de l'utilisateur
+   * @param ce qui sont les classes energetiques des logements de l'utilisateur
    */
-  public void setLogement(int superficie, CE ce){
-    logement = new Logement(superficie, ce);
+  public void setLogements(int [] superficies, ArrayList<CE> ce){
+    for (int i=0; i<ce.size(); i++){
+      Logement logement = new Logement(superficies[i], ce.get(i));
+      logements.add(logement);
+    }
   }
 
-  /** getter de logement
-   * @return l'objet logement
+  /** getter de logements
+   * @return la liste des logements
    */
-  public Logement getLogement(){
-    return this.logement;
+  public ArrayList<Logement> getLogements(){
+    return this.logements;
   }
 
   /** setter de avion
@@ -136,6 +151,52 @@ public class Utilisateur {
     this.services = new ServicesPublics();
   }
 
+  public void sortConsoCarbone(){
+    ArrayList<ConsoCarbone> listeConso = new ArrayList<ConsoCarbone>();
+    listeConso.add(alimentation);
+    listeConso.add(bienConso);
+    for (int i = 0; i<logements.size(); i++){
+      listeConso.add(logements.get(i));
+    }
+    listeConso.add(avion);
+    listeConso.add(trainEtBus);
+    listeConso.add(voiture);
+    listeConso.add(services);
+    listeConso.sort(new Comparator<ConsoCarbone>() {
+      @Override
+      public int compare(ConsoCarbone o1, ConsoCarbone o2){
+        return o1.compareTo(o2);
+      }
+    });
+    System.out.println("Ordre de vos consommations carbones (de celui ayant l'impact le plus faible à celui ayant l'impact le plus élevé) : ");
+    for(int i = 0; i<listeConso.size(); i++){
+      ConsoCarbone conso = listeConso.get(i);
+      if (conso == alimentation){
+        System.out.println("alimentation avec impact = " + alimentation.getImpact());
+      }
+      if (conso == bienConso){
+        System.out.println("bien conso avec impact = " + bienConso.getImpact());
+      }
+      for (int j = 0; j<logements.size(); j++){
+        if (conso == logements.get(j)){
+          System.out.println("logement " + j + "avec impact = " + logements.get(j).getImpact());
+        }
+      }
+      if (conso == avion){
+        System.out.println("avion avec impact = " + avion.getImpact());
+      }
+      if (conso == trainEtBus){
+        System.out.println("train et bus avec impact = " + trainEtBus.getImpact());
+      }
+      if (conso == voiture){
+        System.out.println("voiture avec impact = " + voiture.getImpact());
+      }
+      if (conso == services){
+        System.out.println("services publics avec impact = " + services.getImpact());
+      }
+    }
+  }
+
   // Constructeurs
 
   /** constructeur de la classe Utilisateur
@@ -143,7 +204,7 @@ public class Utilisateur {
   public Utilisateur(){
     this.alimentation = new Alimentation();
     this.bienConso = new BienConso();
-    this.logement = new Logement();
+    this.logements = new ArrayList<Logement>();
     this.avion = new Avion();
     this.trainEtBus = new TrainEtBus();
     this.voiture = new Voiture();
@@ -153,16 +214,16 @@ public class Utilisateur {
   /** constructeur de la classe Utilisateur
    * @param alimentation qui est un objet de la classe Alimentation
    * @param bienConso qui est un objet de la classe BienConso
-   * @param logement qui est un objet de la classe Logement
+   * @param logements qui est une liste d'objets de la classe Logement
    * @param avion qui est un objet de la classe Avion
    * @param voiture qui est un objet de la classe Voiture
    * @param trainEtBus qui est un objet de la classe TrainEtBus
    * @param services qui est un objet de la classe ServicesPublics
    */
-  public Utilisateur(Alimentation alimentation, BienConso bienConso, Logement logement, Avion avion, Voiture voiture, TrainEtBus trainEtBus, ServicesPublics services){
+  public Utilisateur(Alimentation alimentation, BienConso bienConso, ArrayList<Logement> logements, Avion avion, Voiture voiture, TrainEtBus trainEtBus, ServicesPublics services){
     this.alimentation = alimentation;
     this.bienConso = bienConso;
-    this.logement = logement;
+    this.logements = logements;
     this.avion = avion;
     this.voiture = voiture;
     this.trainEtBus = trainEtBus;
