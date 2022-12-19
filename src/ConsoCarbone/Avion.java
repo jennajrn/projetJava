@@ -15,10 +15,9 @@ public class Avion extends Transport{
   /** setter de la distance et met à jour l'impact
    * @param distance est la distance parcourue par l'utilisateur en avion
    */
-  public void setDistance(int distance){
+  public void setDistance(int distance) throws ErrVal{
     if (distance < 0){
-      System.out.println("erreur la distance doit être positif");
-			distance = 0;
+      throw new ErrVal("La distance doit être positive mais est " + distance);
     }
     super.distance = distance;
     if (distance < 1000){
@@ -45,11 +44,10 @@ public class Avion extends Transport{
   /** constructeur de la classe Avion
    * @param distance est la distance parcourue par l'utilisateur en avion
    */
-  public Avion(int distance){
+  public Avion(int distance) throws ErrVal{
     super();
     if (distance < 0){
-      System.out.println("erreur la distance doit être positif");
-			distance = 0;
+      throw new ErrVal("La distance doit être positive mais est " + distance);
     }
     super.distance = distance;
     if (distance < 1000){
@@ -65,7 +63,10 @@ public class Avion extends Transport{
 
   /** constructeur de la classe Avion
    */
-  public Avion(){
+  public Avion() throws ErrVal{
     this(0);
+    if (distance < 0){
+      throw new ErrVal("La distance doit être positive mais est " + distance);
+    }
   }
 }

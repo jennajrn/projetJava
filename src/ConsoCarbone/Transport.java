@@ -15,7 +15,7 @@ public abstract class Transport extends ConsoCarbone{
   /** setter de distance a redefinir dans les classes filles
    * @param distance qui est la distance parcourue par l'utilisateur
    */
-  public abstract void setDistance(int distance);
+  public abstract void setDistance(int distance) throws ErrVal;
 
   /** affiche le detail de l'empreinte carbone moyenne des francais vis-a-vis des transports
    */

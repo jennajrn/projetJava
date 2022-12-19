@@ -13,7 +13,11 @@ public class TestAlimentation{
 
     @BeforeEach
     public void initAlimentation() {
-        alimentationTest = new Alimentation();
+        try {
+            alimentationTest = new Alimentation();
+        } catch (ErrVal e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @AfterEach
@@ -23,7 +27,11 @@ public class TestAlimentation{
 
     @Test
     public void setTxVegeTest(){
-        alimentationTest.setTxVege(0.5);
+        try {
+            alimentationTest.setTxVege(0.5);
+        } catch (ErrVal e){
+            System.out.println(e.getMessage());
+        }
         assertEquals(1.25, alimentationTest.getImpact()); //modifier valeur impact
         assertEquals(0.5, alimentationTest.getTxVege());
     }
@@ -31,13 +39,21 @@ public class TestAlimentation{
     @ParameterizedTest
     @ValueSource(doubles = { 0.2, 0.5, 0.8 })
     public void getTxVegeTest(double arg){
-        alimentationTest.setTxVege(arg);
+        try {
+            alimentationTest.setTxVege(arg);
+        } catch (ErrVal e){
+            System.out.println(e.getMessage());
+        }
         assertEquals(arg, alimentationTest.getTxVege());
     }
 
     @Test
     public void setTxBoeufTest(){
-        alimentationTest.setTxBoeuf(0.5);
+        try {
+            alimentationTest.setTxBoeuf(0.5);
+        } catch (ErrVal e){
+            System.out.println(e.getMessage());
+        }
         assertEquals(4.8, alimentationTest.getImpact()); //modifier valeur impact
         assertEquals(0.5, alimentationTest.getTxBoeuf());
     }
@@ -45,7 +61,11 @@ public class TestAlimentation{
     @ParameterizedTest
     @ValueSource(doubles = { 0.2, 0.5, 0.8 })
     public void getTxBoeufTest(double arg){
-        alimentationTest.setTxBoeuf(arg);
+        try{
+            alimentationTest.setTxBoeuf(arg);
+        } catch (ErrVal e){
+            System.out.println(e.getMessage());
+        }
         assertEquals(arg, alimentationTest.getTxBoeuf());
     }
 

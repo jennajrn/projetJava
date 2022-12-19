@@ -14,10 +14,9 @@ public class Alimentation extends ConsoCarbone{
 	/** setter de txBoeuf
 	 * @param txBoeuf qui est le taux de repas a base de boeuf
 	 */
-	public void setTxBoeuf(double txBoeuf){
+	public void setTxBoeuf(double txBoeuf) throws ErrVal{
 		if (txBoeuf < 0 || txBoeuf > 1){
-			System.out.println("erreur le taux de repas à base de boeuf doit être entre 0 et 1");
-			txBoeuf = 0;
+			throw new ErrVal("Le taux de repas à base de boeuf doit être entre 0 et 1 mais est " + txBoeuf);
 		}
 		this.txBoeuf = txBoeuf;
 		setImpact((coeffBoeuf * this.txBoeuf) + coeffVolaille * (1 - this.txVege - this.txBoeuf) + coeffVege * this.txVege);
@@ -33,10 +32,9 @@ public class Alimentation extends ConsoCarbone{
 	/** setter de txVege
 	 * @param txVege qui est le le taux de repas vegetariens
 	 */
-	public void setTxVege(double txVege){
+	public void setTxVege(double txVege) throws ErrVal{
 		if (txVege < 0 || txVege > 1){
-			System.out.println("erreur le taux de repas végétariens doit être entre 0 et 1");
-			txVege = 0;
+			throw new ErrVal("Le taux de repas végétariens doit être entre 0 et 1 mais est " + txVege);
 		}
 		this.txVege = txVege;
 		setImpact((coeffBoeuf * this.txBoeuf) + coeffVolaille * (1 - this.txVege - this.txBoeuf) + coeffVege * this.txVege);
@@ -69,15 +67,13 @@ public class Alimentation extends ConsoCarbone{
 	 * @param txBoeuf qui est le le taux de repas a base de boeuf
 	 * @param txVege qui est le le taux de repas vegetariens
 	 */
-	public Alimentation(double txBoeuf, double txVege){
+	public Alimentation(double txBoeuf, double txVege) throws ErrVal{
 		super();
 		if (txBoeuf < 0 || txBoeuf > 1){
-			System.out.println("erreur le taux de repas à base de boeuf doit être entre 0 et 1");
-			txBoeuf = 0;
+			throw new ErrVal("Le taux de repas à base de boeuf doit être entre 0 et 1 mais est " + txBoeuf);
 		}
 		if (txVege < 0 || txVege > 1){
-			System.out.println("erreur le taux de repas végétariens doit être entre 0 et 1");
-			txVege = 0;
+			throw new ErrVal("Le taux de repas végétariens doit être entre 0 et 1 mais est " + txVege);
 		}
 		this.txBoeuf = txBoeuf;
 		this.txVege = txVege;
@@ -86,7 +82,13 @@ public class Alimentation extends ConsoCarbone{
 
 	/** constructeur de la classe Alimentation
 	 */
-	public Alimentation(){
-		this(0,0);
+	public Alimentation() throws ErrVal{
+		this(0.0, 0.0);
+		if (txBoeuf < 0 || txBoeuf > 1){
+			throw new ErrVal("Le taux de repas à base de boeuf doit être entre 0 et 1 mais est " + txBoeuf);
+		}
+		if (txVege < 0 || txVege > 1){
+			throw new ErrVal("Le taux de repas végétariens doit être entre 0 et 1 mais est " + txVege);
+		}
 	}
 }

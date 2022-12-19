@@ -11,12 +11,13 @@ import java.util.Comparator;
 public class Utilisateur {
   private Alimentation alimentation;
   private BienConso bienConso;
-  //private Logement logement;
   private ArrayList<Logement> logements;
   private Avion avion;
   private Voiture voiture;
   private TrainEtBus trainEtBus;
   private ServicesPublics services;
+  private static int cpt;
+  protected final int id;
 
   /** calcule l'empreinte carbone de l'utilisateur
    * @return la valeur de l'empreinte carbone total de l'utilisateur
@@ -46,12 +47,23 @@ public class Utilisateur {
     System.out.println("L’empreinte carbone de l’utilisateur.rice concernant son utilisation des services publics est " + services.getImpact() + " TCO2eq.");
   }
 
+  /** getter de l'id
+   * @return la valeur de l'id de l'objet
+   */
+  public int getId(){
+    return id;
+  }
+
   /** setter de alimentation
    * @param txBoeuf qui est le taux de repas à base de boeuf
    * @param txVege qui est le taux de repas vegetariens
    */
   public void setAlimentation(double txBoeuf, double txVege){
-    alimentation = new Alimentation(txBoeuf, txVege);
+    try {
+      alimentation = new Alimentation(txBoeuf, txVege);
+    } catch (ErrVal e) {
+      System.out.println(e.getMessage());
+    }
   }
 
   /** getter de alimentation
@@ -97,7 +109,11 @@ public class Utilisateur {
    * @param distance qui est la distance parcourue par l'utilisateur en avion
    */
   public void setAvion(int distance){
-    avion = new Avion(distance);
+    try{
+      avion = new Avion(distance);
+    } catch (ErrVal e){
+      System.out.println(e.getMessage());
+    }
   }
 
   /** getter de avion
@@ -168,6 +184,7 @@ public class Utilisateur {
         return o1.compareTo(o2);
       }
     });
+
     System.out.println("Ordre de vos consommations carbones (de celui ayant l'impact le plus faible à celui ayant l'impact le plus élevé) : ");
     for(int i = 0; i<listeConso.size(); i++){
       ConsoCarbone conso = listeConso.get(i);
@@ -179,7 +196,7 @@ public class Utilisateur {
       }
       for (int j = 0; j<logements.size(); j++){
         if (conso == logements.get(j)){
-          System.out.println("logement " + j + "avec impact = " + logements.get(j).getImpact());
+          System.out.println("logement " + j + " avec impact = " + logements.get(j).getImpact());
         }
       }
       if (conso == avion){
@@ -195,6 +212,55 @@ public class Utilisateur {
         System.out.println("services publics avec impact = " + services.getImpact());
       }
     }
+
+    System.out.println();
+
+    System.out.println("Recommendations : ");
+    for(int i = 0; i<listeConso.size(); i++){
+      ConsoCarbone conso = listeConso.get(i);
+      if (conso == alimentation){
+        if (conso.getImpact() > 2.09){
+          System.out.println("Votre empreinte carbone concernant votre alimentation est trop élevé, nous vous recommandons de réduire votre consommation de viande et d'augmenter votre taux de regas végétariens.");
+        }
+      }
+      if (conso == bienConso){
+        if (conso.getImpact() > 2.625){
+          System.out.println("L'impact de vos dépenses est trop élevé, nous vous recommandons de réduire le montant de vos dépenses.");
+        }
+      }
+      for (int j = 0; j<logements.size(); j++){
+        if (conso == logements.get(j)){
+          if (conso.getImpact() > 1.696){
+            System.out.println("Votre consommation carbone vis-à-vis du logement " + j + " est trop élevé, nous vous recommandons une rénovation énergétique afin de passer à une meilleure classe énergétique.");
+          }
+        }
+      }
+      if (conso == avion){
+        if (conso.getImpact() > 0.48){
+          System.out.println("Vous prenez beaucoup l'avion, pour des courts trajets nous vous recommandons de prendre le train.");
+        }
+      }
+      if (conso == trainEtBus){
+        if (conso.getImpact() > 0.085){
+          System.out.println("Vous faites trop de trajets en train et en bus, pour limiter les trajets en bus nous vous recommandons de prendre le vélo.");
+        }
+      }
+      if (conso == voiture){
+        System.out.println("Vous faites trop de trajets en voiture, nous vous recommandons de prendre le vélo.");
+      }
+    }
+  }
+
+  /** methode toString
+   * @return chaine de caracteres servant a decrire l'objet concerne
+   */
+  @Override
+  public String toString(){
+    String logementToString = "";
+    for (int i=0; i<logements.size(); i++){
+      logementToString = logementToString + logements.get(i).toString();
+    }
+    return alimentation.toString() + bienConso.toString() + logementToString + avion.toString() + trainEtBus.toString() + voiture.toString() + services.toString() + "id=" + id + "\n";
   }
 
   // Constructeurs
@@ -202,13 +268,19 @@ public class Utilisateur {
   /** constructeur de la classe Utilisateur
    */
   public Utilisateur(){
-    this.alimentation = new Alimentation();
-    this.bienConso = new BienConso();
-    this.logements = new ArrayList<Logement>();
-    this.avion = new Avion();
-    this.trainEtBus = new TrainEtBus();
-    this.voiture = new Voiture();
-    this.services = new ServicesPublics();
+    cpt++;
+    this.id = cpt;
+    try{
+      this.alimentation = new Alimentation();
+      this.bienConso = new BienConso();
+      this.logements = new ArrayList<Logement>();
+      this.avion = new Avion();
+      this.trainEtBus = new TrainEtBus();
+      this.voiture = new Voiture();
+      this.services = new ServicesPublics();
+    } catch (ErrVal e){
+      System.out.println(e.getMessage());
+    }
   }
 
   /** constructeur de la classe Utilisateur
@@ -221,6 +293,8 @@ public class Utilisateur {
    * @param services qui est un objet de la classe ServicesPublics
    */
   public Utilisateur(Alimentation alimentation, BienConso bienConso, ArrayList<Logement> logements, Avion avion, Voiture voiture, TrainEtBus trainEtBus, ServicesPublics services){
+    cpt++;
+    this.id = cpt;
     this.alimentation = alimentation;
     this.bienConso = bienConso;
     this.logements = logements;
