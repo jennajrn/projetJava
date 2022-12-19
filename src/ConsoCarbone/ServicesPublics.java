@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet ServicesPublics est un ConsoCarbone qui calcule l’empreinte carbone concernant l'utilisation des services publics
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class ServicesPublics extends ConsoCarbone{
+public class ServicesPublics extends ConsoCarbone implements Serializable{
   private static ServicesPublics singleton = null;
 
   /** permet de s'assurer qu'il n'y a qu'une seule instance de la classe ServicesPublics

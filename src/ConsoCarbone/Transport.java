@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet Transport est un ConsoCarbone qui calcule l’empreinte carbone concernant les déplacements
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public abstract class Transport extends ConsoCarbone{
+public abstract class Transport extends ConsoCarbone implements Serializable{
   protected int distance;
 
   /** getter de distance a redefinir dans les classes filles

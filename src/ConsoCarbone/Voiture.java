@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet Voiture est un Transport qui calcule l’empreinte carbone concernant les déplacements en voiture
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class Voiture extends Transport{
+public class Voiture extends Transport implements Serializable{
   private boolean possede;
   private Taille taille;
   private int amortissement; //positif
@@ -103,7 +105,7 @@ public class Voiture extends Transport{
   @Override
   public String toString(){
 		if(possede==false){
-      return "L’utilisateur.rice. ne possède pas de voiture alors l'impact des déplacements de l’utilisateur.rice sera de 0" + "\n";
+      return "L’utilisateur.rice. ne possède pas de voiture alors l'impact des déplacements de l’utilisateur.rice sera de 0 TCO2eq. id=" + super.id + "\n";
     }
     else if (taille==Taille.P){
       return "Quand l’utilisateur.rice. possède une petite voiture, que le nombre de kilomètres parcourus est " + super.distance + " par an et que la durée de conservation du véhicule est " + this.amortissement + ", l'impact de ces déplacements est " + getImpact() + " TCO2eq. id=" + super.id + "\n";

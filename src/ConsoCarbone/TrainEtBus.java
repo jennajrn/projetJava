@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet TrainEtBus est un Transport qui calcule l’empreinte carbone concernant les déplacements en train et en bus
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class TrainEtBus extends Transport{
+public class TrainEtBus extends Transport implements Serializable{
   /** getter de distance
    * @return la valeur de l'attribut distance
    */

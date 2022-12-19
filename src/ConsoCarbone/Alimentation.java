@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet Alimentation est un ConsoCarbone qui calcule l’empreinte carbone concernant l'alimentation
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class Alimentation extends ConsoCarbone{
+public class Alimentation extends ConsoCarbone implements Serializable{
 	private static final double coeffBoeuf = 8;
 	private static final double coeffVolaille = 1.6;
 	private static final double coeffVege = 0.9;

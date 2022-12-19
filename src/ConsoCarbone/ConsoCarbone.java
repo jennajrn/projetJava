@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet ConsoCarbone
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class ConsoCarbone implements Comparable<ConsoCarbone>{
+public class ConsoCarbone implements Comparable<ConsoCarbone>, Serializable{
   protected final int id;
   private double impact;
   private static int cpt;

@@ -1,14 +1,19 @@
 package Utilisateur;
 import ConsoCarbone.*;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.io.Serializable;
+
 
 /** Un objet Utilisateur permet de calculer et de détailler l'empreinte carbone de l'utilisateur
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class Utilisateur {
+public class Utilisateur implements Serializable{
   private Alimentation alimentation;
   private BienConso bienConso;
   private ArrayList<Logement> logements;
@@ -302,5 +307,17 @@ public class Utilisateur {
     this.voiture = voiture;
     this.trainEtBus = trainEtBus;
     this.services = services;
+  }
+
+  public Utilisateur(String nomFichier){
+    cpt++;
+    this.id = cpt;
+    try{
+      ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(nomFichier)));
+      Utilisateur utilisateur = (Utilisateur) ois.readObject();
+      ois.close();
+    } catch(Exception e){
+      e.printStackTrace();
+    }
   }
 }

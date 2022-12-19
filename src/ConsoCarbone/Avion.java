@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet Avion est un Transport qui calcule l’empreinte carbone concernant les déplacements en avion
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class Avion extends Transport{
+public class Avion extends Transport implements Serializable{
   /** getter de la distance
    * @return la valeur de l'attribut distance
    */

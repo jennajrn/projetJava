@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet BienConso est un ConsoCarbone qui calcule l’empreinte carbone concernant les dépenses en biens de consommation
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class BienConso extends ConsoCarbone{
+public class BienConso extends ConsoCarbone implements Serializable{
   private double montant; //positif
 
   /** setter du montant et met à jour l'impact

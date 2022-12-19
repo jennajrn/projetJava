@@ -1,10 +1,12 @@
 package ConsoCarbone;
 
+import java.io.Serializable;
+
 /** Un objet Logement est un ConsoCarbone qui calcule l’empreinte carbone concernant le logement
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
-public class Logement extends ConsoCarbone{
+public class Logement extends ConsoCarbone implements Serializable{
 	private int superficie; //positif
 	private CE ce;
 
