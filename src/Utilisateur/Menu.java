@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 
-public class Menu {
+public class Menu{
     private static Scanner scan = new Scanner(System.in);
 
     public static void printMenu(){

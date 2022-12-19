@@ -23,7 +23,7 @@ public class TrainEtBus extends Transport implements Serializable{
 			distance = 0;
     }
     super.distance = distance;
-    setImpact(distance * 0.00012);
+    setImpact(distance * 0.0001219);
   }
 
   /** methode toString

@@ -2,7 +2,7 @@ package ConsoCarbone;
 
 import java.io.Serializable;
 
-/** Un objet ConsoCarbone
+/** Un objet ConsoCarbone représente un poste de consommation carbone générique
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */

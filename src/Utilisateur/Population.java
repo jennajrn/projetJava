@@ -3,7 +3,7 @@ import ConsoCarbone.*;
 
 import java.util.ArrayList;
 
-public class Population {
+public class Population{
     private ArrayList<Utilisateur> population;
 
     public Population(){
@@ -45,7 +45,7 @@ public class Population {
             i++; }
     }
 
-    public void MesuresPolitiques(){
+    public void mesuresPolitiques(){
         double impactVoitures = 0.0;
         ArrayList<CE> ce = new ArrayList<CE>();
         for (Utilisateur u:population){
@@ -66,7 +66,7 @@ public class Population {
             }
         }
         if(found){
-            System.out.println("La consommation énergétique du ou des logement(s) de certains utilisateurs est trop élevée, nous incitions ces personnes à la rénovation énegétique de leur(s) logement(s).");
+            System.out.println("La consommation énergétique du ou des logement(s) de certains utilisateurs est trop élevée, nous incitions ces personnes à la rénovation énergétique de leur(s) logement(s).");
         }
     }
 }

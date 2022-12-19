@@ -26,10 +26,10 @@ public class Avion extends Transport implements Serializable{
       setImpact(distance * 0.00023);
     }
     else if (distance < 3500){
-      setImpact(distance * 0.00017);
+      setImpact(distance * 0.0001784);
     }
     else{
-      setImpact(distance * 0.00015);
+      setImpact(distance * 0.00015166);
     }
   }
 

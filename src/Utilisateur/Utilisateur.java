@@ -220,7 +220,7 @@ public class Utilisateur implements Serializable{
 
     System.out.println();
 
-    System.out.println("Recommendations : ");
+    System.out.println("Recommandations : ");
     for(int i = 0; i<listeConso.size(); i++){
       ConsoCarbone conso = listeConso.get(i);
       if (conso == alimentation){
