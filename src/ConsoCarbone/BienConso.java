@@ -11,6 +11,7 @@ public class BienConso extends ConsoCarbone implements Serializable{
 
   /** setter du montant et met à jour l'impact
    * @param montant est le montant des dépenses annuelles de l'utilisateur
+   * @throws ErrVal afin de s'assurer que montant soit positif
    */
   public void setMontant(double montant) throws ErrVal{
     if (montant < 0){
@@ -45,6 +46,7 @@ public class BienConso extends ConsoCarbone implements Serializable{
 
   /** constructeur de la classe BienConso
    * @param montant est le montant des dépenses annuelles de l'utilisateur
+   * @throws ErrVal afin de s'assurer que montant soit positif
    */
   public BienConso(double montant) throws ErrVal{
     super();
@@ -56,6 +58,7 @@ public class BienConso extends ConsoCarbone implements Serializable{
   }
 
   /** constructeur de la classe BienConso
+   * @throws ErrVal afin de s'assurer que montant soit positif
    */
   public BienConso() throws ErrVal{
     this(0);

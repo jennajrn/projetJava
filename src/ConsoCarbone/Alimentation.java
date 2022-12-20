@@ -15,6 +15,7 @@ public class Alimentation extends ConsoCarbone implements Serializable{
 
 	/** setter de txBoeuf
 	 * @param txBoeuf qui est le taux de repas a base de boeuf
+	 * @throws ErrVal afin de s'assurer que txBoeuf soit compris entre 0 et 1
 	 */
 	public void setTxBoeuf(double txBoeuf) throws ErrVal{
 		if (txBoeuf < 0 || txBoeuf > 1){
@@ -33,6 +34,7 @@ public class Alimentation extends ConsoCarbone implements Serializable{
 
 	/** setter de txVege
 	 * @param txVege qui est le le taux de repas vegetariens
+	 * @throws ErrVal afin de s'assurer que txVege soit compris entre 0 et 1
 	 */
 	public void setTxVege(double txVege) throws ErrVal{
 		if (txVege < 0 || txVege > 1){
@@ -68,6 +70,7 @@ public class Alimentation extends ConsoCarbone implements Serializable{
 	/** constructeur de la classe Alimentation
 	 * @param txBoeuf qui est le le taux de repas a base de boeuf
 	 * @param txVege qui est le le taux de repas vegetariens
+	 * @throws ErrVal afin de s'assurer que txBoeuf et txVege soient compris entre 0 et 1
 	 */
 	public Alimentation(double txBoeuf, double txVege) throws ErrVal{
 		super();
@@ -83,6 +86,7 @@ public class Alimentation extends ConsoCarbone implements Serializable{
 	}
 
 	/** constructeur de la classe Alimentation
+	 * @throws ErrVal afin de s'assurer que txBoeuf et txVege soient compris entre 0 et 1
 	 */
 	public Alimentation() throws ErrVal{
 		this(0.0, 0.0);

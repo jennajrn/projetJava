@@ -19,6 +19,7 @@ public class Logement extends ConsoCarbone implements Serializable{
 
 	/** actualiser les variables superficie et impact
 	 * @param superficie qui est la superficie du logement de l'utilisateur
+	 * @throws ErrVal afin de s'assurer que superficie soit positif
 	 */
 	public void setSuperficie(int superficie) throws ErrVal{
 		if (superficie < 0){
@@ -62,6 +63,7 @@ public class Logement extends ConsoCarbone implements Serializable{
 	/** constructeur de la classe Logement
 	 * @param superficie qui est la superficie du logement de l'utilisateur
 	 * @param ce qui est la classe energetique du logement de l'utilisateur
+	 * @throws ErrVal afin de s'assurer que superficie soit positif
 	 */
 	public Logement(int superficie, CE ce) throws ErrVal{
 		super();
@@ -74,6 +76,7 @@ public class Logement extends ConsoCarbone implements Serializable{
 	}
 
 	/** constructeur de la classe Logement
+	 * @throws ErrVal afin de s'assurer que superficie soit positif
 	 */
 	public Logement() throws ErrVal{
 		this(0, CE.A);

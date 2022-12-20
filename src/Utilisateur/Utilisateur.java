@@ -99,15 +99,13 @@ public class Utilisateur implements Serializable{
   }
 
   /** setter de logements
-   * @param superficies qui est une liste des superficies des logements de l'utilisateur
-   * @param ce qui sont les classes energetiques des logements de l'utilisateur
+   * @param superficie qui est la superficie des logement de l'utilisateur
+   * @param ce qui est la classe energetique du logement de l'utilisateur
    */
-  public void setLogements(int [] superficies, ArrayList<CE> ce){
+  public void setLogements(int superficie, CE ce){
     try{
-      for (int i=0; i<ce.size(); i++){
-        Logement logement = new Logement(superficies[i], ce.get(i));
-        logements.add(logement);
-      }
+      Logement logement = new Logement(superficie, ce);
+      logements.add(logement);
     }
     catch (ErrVal e){
       System.out.println(e.getMessage());
@@ -194,6 +192,8 @@ public class Utilisateur implements Serializable{
     this.services = new ServicesPublics();
   }
 
+  /** permet d'ordonner les consommations carbone de l’utilisateur dans une liste puis présente l’information obtenue et enfin fait des recommandations pour obtenir un mode de vie plus durable.
+   */
   public void sortConsoCarbone(){
     ArrayList<ConsoCarbone> listeConso = new ArrayList<ConsoCarbone>();
     listeConso.add(alimentation);
@@ -332,6 +332,9 @@ public class Utilisateur implements Serializable{
     this.services = services;
   }
 
+  /** constructeur de la classe Utilisateur qui permet d'initialiser un utilisateur à partir d’un fichier texte
+   * @param nomFichier qui est une chaîne de caractère correpondant au nom du fichier texte
+   */
   public Utilisateur(String nomFichier){
     cpt++;
     this.id = cpt;

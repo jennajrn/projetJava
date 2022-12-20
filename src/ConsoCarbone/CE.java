@@ -19,6 +19,11 @@ public enum CE {A(0.005),B(0.01),C(0.02),D(0.035),E(0.055),F(0.08),G(0.1);
     return alphaCE;
   }
 
+  /** méthode permettant de convertir une chaîne de caractère en objet CE
+   * @param s qui est une chaîne de caractère A,B,C,D,E ou F à convertir en objet CE
+   * @return un objet de type CE correspondant à la chaîne de caractère s prise en argument
+   * @throws ErrVal afin de s'assurer que la châine de caractère prise en argument corresponde bien à A,B,C,D,E ou F
+   */
   public static CE value(String s) throws ErrVal{
     if (!s.equals("A") && !s.equals("B") && !s.equals("C") && !s.equals("D") && !s.equals("E") && !s.equals("F") && !s.equals("G")){
       throw new ErrVal("La chaine de caractère prise en argument doit être A,B,C,D,E,F ou G mais est " + s);

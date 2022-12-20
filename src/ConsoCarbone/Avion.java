@@ -16,6 +16,7 @@ public class Avion extends Transport implements Serializable{
 
   /** setter de la distance et met à jour l'impact
    * @param distance est la distance parcourue par l'utilisateur en avion
+   * @throws ErrVal afin de s'assurer que distance soit positif
    */
   public void setDistance(int distance) throws ErrVal{
     if (distance < 0){
@@ -45,6 +46,7 @@ public class Avion extends Transport implements Serializable{
 
   /** constructeur de la classe Avion
    * @param distance est la distance parcourue par l'utilisateur en avion
+   * @throws ErrVal afin de s'assurer que distance soit positif
    */
   public Avion(int distance) throws ErrVal{
     super();
@@ -64,6 +66,7 @@ public class Avion extends Transport implements Serializable{
   }
 
   /** constructeur de la classe Avion
+   * @throws ErrVal afin de s'assurer que distance soit positif
    */
   public Avion() throws ErrVal{
     this(0);

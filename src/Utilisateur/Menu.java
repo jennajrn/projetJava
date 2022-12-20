@@ -5,9 +5,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 
+/** La classe Menu est un menu interactif permettant d'interagir dans la console avec l'utilisateur du programme
+ */
 public class Menu{
     private static Scanner scan = new Scanner(System.in);
 
+    /** affiche le menu sur la console
+     */
     public static void printMenu(){
         System.out.println("-------------");
         System.out.println("Voici le Menu");
@@ -17,6 +21,8 @@ public class Menu{
         System.out.println("Tapez 2 pour lire un Utilisateur dans un fichier.");
     }
 
+    /** ecrit un objet de la classe Utilisateur dont les informations sont donnees par l'utilisateur, dans un fichier dont le nom est egalement donne par l'utilisateur
+     */
     public static void ecrireUtilisateur(){
         try{
             System.out.println("Fichier dans lequel vous voulez écrire : ");
@@ -92,6 +98,8 @@ public class Menu{
         }
     }
 
+    /** lit un objet de la classe Utilisateur contenu dans un fichier dont le nom est donne par l'utilisateur et l'affiche sur la console
+     */
     public static void lireUtilisateur(){
         try{
             System.out.println("Fichier que vous voulez lire : ");

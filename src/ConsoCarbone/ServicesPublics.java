@@ -19,13 +19,6 @@ public class ServicesPublics extends ConsoCarbone implements Serializable{
     return singleton;
   }
 
-  /** constructeur de la classe ServicesPublics
-   */
-  public ServicesPublics(){
-    super();
-    setImpact(1.5);
-  }
-
   /** affiche le detail de l'empreinte carbone moyenne des francais vis-a-vis des services publics
    */
   public static void empreinteCarboneMoy(){
@@ -38,5 +31,14 @@ public class ServicesPublics extends ConsoCarbone implements Serializable{
   @Override
   public String toString(){
     return "L'impact pour le poste de consommation carbone induit par les services publics est de " + getImpact() + " TCO2eq. id=" + super.id + "\n";
+  }
+
+  //Constructeur
+
+  /** constructeur de la classe ServicesPublics
+   */
+  public ServicesPublics(){
+    super();
+    setImpact(1.5);
   }
 }

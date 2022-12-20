@@ -3,17 +3,27 @@ import ConsoCarbone.*;
 
 import java.util.ArrayList;
 
+/** L'objet Population correspond à une liste d'objets de la classe Utilisateur
+ */
 public class Population{
     private ArrayList<Utilisateur> population;
 
+    /** constructeur de la classe Population
+     */
     public Population(){
         population = new ArrayList<Utilisateur>();
     }
 
+    /** methode qui permet de rajouter un objet de la classe Utilisateur à la liste
+     * @param utilisateur qui correspond à l'objet à rajouter dans la liste
+     */
     public void addUtilisateur(Utilisateur utilisateur){
         population.add(utilisateur);
     }
 
+    /** methode qui permet d'afficher les informations de l'utilisateur ayant n comme id
+     * @param n qui correspond à l'id de l'utilisateur dont ont veut afficher les informations
+     */
     public void display(int n){
         boolean found = false;
         for(int i=0; i < population.size(); i++) {
@@ -25,6 +35,9 @@ public class Population{
             System.out.println("Utilisateur d'id=" + n + " n'existe pas.");
     }
 
+    /** methode toString
+     * @return chaine de caracteres servant a decrire l'objet concerne
+     */
     @Override
     public String toString(){
         String description = "";
@@ -34,6 +47,9 @@ public class Population{
         return description;
     }
 
+    /** methode qui permet de supprimer l'utilisateur ayant n comme id dans la liste
+     * @param n qui correpond à l'id de l'utilisateur que l'on souhaite supprimet
+     */
     public void removeUtilisateur(int n){
         boolean found = false;
         int i=0;
@@ -45,6 +61,8 @@ public class Population{
             i++; }
     }
 
+    /** propose des mesures afin de reduire l'empreinte carbone de la population
+     */
     public void mesuresPolitiques(){
         double impactVoitures = 0.0;
         ArrayList<CE> ce = new ArrayList<CE>();

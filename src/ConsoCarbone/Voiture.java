@@ -53,6 +53,7 @@ public class Voiture extends Transport implements Serializable{
 
   /** setter de distance
    * @param distance qui est la distance parcourue en voiture par l'utilisateur
+   * @throws ErrVal afin de s'assurer que distance soit positif
    */
   public void setDistance(int distance) throws ErrVal{
     if (distance < 0){
@@ -76,6 +77,7 @@ public class Voiture extends Transport implements Serializable{
 
   /** setter de amortissement
    * @param amortissement qui correspond a la durée de conservation du véhicule
+   * @throws ErrVal afin de s'assurer que amortissement soit positif
    */
   public void setAmortissement(int amortissement) throws ErrVal{
     if (amortissement < 0){
@@ -116,6 +118,7 @@ public class Voiture extends Transport implements Serializable{
   //Constructeurs
 
   /** constructeur de la classe Voiture
+   * @throws ErrVal afin de s'assurer que distance et amortissement soient positifs
    */
   public Voiture() throws ErrVal{
     this(false, Taille.P, 0, 0);
@@ -132,6 +135,7 @@ public class Voiture extends Transport implements Serializable{
    * @param taille qui correspond a la taille du vehicule (P correspondant a petite voiture et G pour grosse voiture)
    * @param distance qui est la distance parcourue en voiture par l'utilisateur
    * @param amortissement qui correspond a la durée de conservation du véhicule
+   * @throws ErrVal afin de s'assurer que distance et amortissement soient positifs
    */
   public Voiture(boolean possede, Taille taille, int distance, int amortissement) throws ErrVal{
     super();

@@ -16,6 +16,7 @@ public abstract class Transport extends ConsoCarbone implements Serializable{
 
   /** setter de distance a redefinir dans les classes filles
    * @param distance qui est la distance parcourue par l'utilisateur
+   * @throws ErrVal afin de s'assurer que distance soit positif
    */
   public abstract void setDistance(int distance) throws ErrVal;
 

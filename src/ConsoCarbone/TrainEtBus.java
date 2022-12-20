@@ -16,6 +16,7 @@ public class TrainEtBus extends Transport implements Serializable{
 
   /** setter de distance
    * @param distance qui est la distance parcourue en train ou en bus par l'utilisateur
+   * @throws ErrVal afin de s'assurer que distance soit positif
    */
   public void setDistance(int distance) throws ErrVal{
     if (distance < 0){
@@ -37,6 +38,7 @@ public class TrainEtBus extends Transport implements Serializable{
 
   /** constructeur de la classe TrainEtBus
    * @param distance qui est la distance parcourue en train ou en bus par l'utilisateur
+   * @throws ErrVal afin de s'assurer que distance soit positif
    */
   public TrainEtBus(int distance) throws ErrVal{
     super();
@@ -48,6 +50,7 @@ public class TrainEtBus extends Transport implements Serializable{
   }
 
   /** constructeur de la classe TrainEtBus
+   * @throws ErrVal afin de s'assurer que distance soit positif
    */
   public TrainEtBus() throws ErrVal{
     this(0);
