@@ -23,7 +23,7 @@ public class Menu{
 
     /** ecrit un objet de la classe Utilisateur dont les informations sont donnees par l'utilisateur, dans un fichier dont le nom est egalement donne par l'utilisateur
      */
-    public static void ecrireUtilisateur(){
+    public static void ecrireUtilisateur() throws ErrVal{
         try{
             System.out.println("Fichier dans lequel vous voulez écrire : ");
             String s = scan.nextLine();
@@ -42,6 +42,9 @@ public class Menu{
                 System.out.println("Avez vous une petite ou une grosse voiture ?");
                 String tailleVoiture = scan.nextLine();
                 Taille taille;
+                if (!tailleVoiture.equals("petite") && !tailleVoiture.equals("grosse")){
+                    throw new ErrVal("il faut entrer petite ou grosse mais vous avez entré " + tailleVoiture);
+                }
                 if (tailleVoiture.equals("petite")){
                     taille = Taille.P;
                 }
@@ -114,25 +117,30 @@ public class Menu{
     }
 
     public static void main(String[] args){
-        boolean quit = false;
-        do{
-            printMenu();
-            int choice = scan.nextInt();
-            scan.nextLine();
-            switch(choice){
-                case(0):
-                    quit = true;
-                    break;
-                case(1):
-                    ecrireUtilisateur();
-                    break;
-                case(2):
-                    lireUtilisateur();
-                    break;
-                default:
-                    System.out.println("Cette valeur ne fait pas partie des possibilités.");
-            }
-        }while(quit == false);
-        scan.close();
+        try{
+            boolean quit = false;
+            do{
+                printMenu();
+                int choice = scan.nextInt();
+                scan.nextLine();
+                switch(choice){
+                    case(0):
+                        quit = true;
+                        break;
+                    case(1):
+                        ecrireUtilisateur();
+                        break;
+                    case(2):
+                        lireUtilisateur();
+                        break;
+                    default:
+                        System.out.println("Cette valeur ne fait pas partie des possibilités.");
+                }
+            }while(quit == false);
+            scan.close();
+        }
+        catch (ErrVal e){
+            System.out.println(e.getMessage());
+        }
     }
 }
