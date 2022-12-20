@@ -1,5 +1,5 @@
 Pour compiler notre projet avec le Terminal:
-- se placer dans le dossier ProjetJava
+- se placer dans le dossier ProjetEmpreinteCarbone
 - executer la ligne de commande : javac ./ConsoCarbone/*.java
 - executer la ligne de commande : javac ./Utilisateur/*.java
 
