@@ -10,7 +10,5 @@ Pour executer notre projet avec le Terminal apres l'avoir compiler :
 - pour executer le main du package Utilisateur : java Utilisateur.Main
 - pour executer le main du menu interactif : java Utilisateur.Menu
 
-Pour pouvoir initialiser un utilisateur à partir d’un fichier texte, il faut tout d'abord écrire un objet de classe Utilisateur
-dans le fichier à l'aide du menu interactif Menu. Une fois le fichier contenant cet objet créé, il suffit de faire appel au constructeur
-Utilisateur avec comme argument le nom du fichier.
+Pour pouvoir initialiser un utilisateur à partir d’un fichier texte, il faut tout d'abord écrire un objet de classe Utilisateur dans le fichier à l'aide du menu interactif Menu. Une fois le fichier contenant cet objet créé, il suffit de faire appel au constructeur Utilisateur avec comme argument le nom du fichier.
 C'est ce que nous avons effectué : le fichier est "Utilisateur.txt" et nous l'avons utilisé dans le main du package Utilisateur
