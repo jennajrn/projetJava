@@ -17,10 +17,9 @@ public class TrainEtBus extends Transport implements Serializable{
   /** setter de distance
    * @param distance qui est la distance parcourue en train ou en bus par l'utilisateur
    */
-  public void setDistance(int distance){
+  public void setDistance(int distance) throws ErrVal{
     if (distance < 0){
-      System.out.println("erreur la distance doit être positif");
-			distance = 0;
+      throw new ErrVal("La distance parcourue en train et en bus doit être positive mais est " + distance);
     }
     super.distance = distance;
     setImpact(distance * 0.0001219);
@@ -39,11 +38,10 @@ public class TrainEtBus extends Transport implements Serializable{
   /** constructeur de la classe TrainEtBus
    * @param distance qui est la distance parcourue en train ou en bus par l'utilisateur
    */
-  public TrainEtBus(int distance){
+  public TrainEtBus(int distance) throws ErrVal{
     super();
     if (distance < 0){
-      System.out.println("erreur la distance doit être positif");
-			distance = 0;
+      throw new ErrVal("La distance parcourue en train et en bus doit être positive mais est " + distance);
     }
     super.distance = distance;
     setImpact(distance * 0.00012);
@@ -51,7 +49,10 @@ public class TrainEtBus extends Transport implements Serializable{
 
   /** constructeur de la classe TrainEtBus
    */
-  public TrainEtBus(){
+  public TrainEtBus() throws ErrVal{
     this(0);
+    if (distance < 0){
+      throw new ErrVal("La distance parcourue en train et en bus doit être positive mais est " + distance);
+    }
   }
 }

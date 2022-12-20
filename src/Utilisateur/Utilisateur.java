@@ -64,9 +64,10 @@ public class Utilisateur implements Serializable{
    * @param txVege qui est le taux de repas vegetariens
    */
   public void setAlimentation(double txBoeuf, double txVege){
-    try {
+    try{
       alimentation = new Alimentation(txBoeuf, txVege);
-    } catch (ErrVal e) {
+    }
+    catch (ErrVal e){
       System.out.println(e.getMessage());
     }
   }
@@ -82,7 +83,12 @@ public class Utilisateur implements Serializable{
    * @param montant qui est le montant des dépenses annuelles de l'utilisateur
    */
   public void setBienConso(double montant){
-    bienConso = new BienConso(montant);
+    try{
+      bienConso = new BienConso(montant);
+    }
+    catch (ErrVal e){
+      System.out.println(e.getMessage());
+    }
   }
 
   /** getter de bienConso
@@ -97,9 +103,14 @@ public class Utilisateur implements Serializable{
    * @param ce qui sont les classes energetiques des logements de l'utilisateur
    */
   public void setLogements(int [] superficies, ArrayList<CE> ce){
-    for (int i=0; i<ce.size(); i++){
-      Logement logement = new Logement(superficies[i], ce.get(i));
-      logements.add(logement);
+    try{
+      for (int i=0; i<ce.size(); i++){
+        Logement logement = new Logement(superficies[i], ce.get(i));
+        logements.add(logement);
+      }
+    }
+    catch (ErrVal e){
+      System.out.println(e.getMessage());
     }
   }
 
@@ -116,7 +127,8 @@ public class Utilisateur implements Serializable{
   public void setAvion(int distance){
     try{
       avion = new Avion(distance);
-    } catch (ErrVal e){
+    }
+    catch (ErrVal e){
       System.out.println(e.getMessage());
     }
   }
@@ -142,7 +154,12 @@ public class Utilisateur implements Serializable{
    * @param amortissement qui correspond a la durée de conservation du véhicule
    */
   public void setVoiture(boolean possede, Taille taille, int distance, int amortissement){
-    voiture = new Voiture(possede, taille, distance, amortissement);
+    try{
+      voiture = new Voiture(possede, taille, distance, amortissement);
+    }
+    catch (ErrVal e){
+      System.out.println(e.getMessage());
+    }
   }
 
   /** getter de trainEtBus
@@ -156,7 +173,12 @@ public class Utilisateur implements Serializable{
    * @param distance qui est la distance parcourue en train ou en bus par l'utilisateur
    */
   public void setTrainEtBus(int distance){
-    trainEtBus = new TrainEtBus(distance);
+    try{
+      trainEtBus = new TrainEtBus(distance);
+    }
+    catch (ErrVal e){
+      System.out.println(e.getMessage());
+    }
   }
 
   /** getter de services
@@ -283,7 +305,8 @@ public class Utilisateur implements Serializable{
       this.trainEtBus = new TrainEtBus();
       this.voiture = new Voiture();
       this.services = new ServicesPublics();
-    } catch (ErrVal e){
+    }
+    catch (ErrVal e){
       System.out.println(e.getMessage());
     }
   }
@@ -316,7 +339,8 @@ public class Utilisateur implements Serializable{
       ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(nomFichier)));
       Utilisateur utilisateur = (Utilisateur) ois.readObject();
       ois.close();
-    } catch(Exception e){
+    }
+    catch(Exception e){
       e.printStackTrace();
     }
   }

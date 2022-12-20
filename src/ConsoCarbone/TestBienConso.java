@@ -12,7 +12,12 @@ public class TestBienConso{
 
     @BeforeEach
     public void initBienConso(){
-        bienConsoTest = new BienConso();
+        try{
+            bienConsoTest = new BienConso();
+        }
+        catch (ErrVal e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @AfterEach
@@ -22,16 +27,26 @@ public class TestBienConso{
 
     @Test
     public void setMontantTest(){
-        bienConsoTest.setMontant(1750);
-        assertEquals(1.0, bienConsoTest.getImpact());
-        assertEquals(1750, bienConsoTest.getMontant());
+        try{
+            bienConsoTest.setMontant(1750);
+            assertEquals(1.0, bienConsoTest.getImpact());
+            assertEquals(1750, bienConsoTest.getMontant());
+        }
+        catch (ErrVal e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @ParameterizedTest
     @ValueSource(ints = { 2000, 2500, 3000, 3250 })
     public void getMontantTest(int arg){
-        bienConsoTest.setMontant(arg);
-        assertEquals(arg, bienConsoTest.getMontant());
+        try{
+            bienConsoTest.setMontant(arg);
+            assertEquals(arg, bienConsoTest.getMontant());
+        }
+        catch (ErrVal e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @Test

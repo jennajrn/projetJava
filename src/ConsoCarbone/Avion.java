@@ -19,7 +19,7 @@ public class Avion extends Transport implements Serializable{
    */
   public void setDistance(int distance) throws ErrVal{
     if (distance < 0){
-      throw new ErrVal("La distance doit être positive mais est " + distance);
+      throw new ErrVal("La distance parcourue en voiture doit être positive mais est " + distance);
     }
     super.distance = distance;
     if (distance < 1000){
@@ -49,7 +49,7 @@ public class Avion extends Transport implements Serializable{
   public Avion(int distance) throws ErrVal{
     super();
     if (distance < 0){
-      throw new ErrVal("La distance doit être positive mais est " + distance);
+      throw new ErrVal("La distance parcourue en voiture doit être positive mais est " + distance);
     }
     super.distance = distance;
     if (distance < 1000){
@@ -68,7 +68,7 @@ public class Avion extends Transport implements Serializable{
   public Avion() throws ErrVal{
     this(0);
     if (distance < 0){
-      throw new ErrVal("La distance doit être positive mais est " + distance);
+      throw new ErrVal("La distance parcourue en voiture doit être positive mais est " + distance);
     }
   }
 }

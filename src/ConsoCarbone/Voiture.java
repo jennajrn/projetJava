@@ -54,10 +54,9 @@ public class Voiture extends Transport implements Serializable{
   /** setter de distance
    * @param distance qui est la distance parcourue en voiture par l'utilisateur
    */
-  public void setDistance(int distance){
+  public void setDistance(int distance) throws ErrVal{
     if (distance < 0){
-      System.out.println("erreur le nombre de kilomètres parcourus par an doit être positif");
-			distance = 0;
+      throw new ErrVal("La distance parcourue en voiture doit être positive mais est " + distance);
     }
     super.distance = distance;
     if (possede == true){
@@ -78,10 +77,9 @@ public class Voiture extends Transport implements Serializable{
   /** setter de amortissement
    * @param amortissement qui correspond a la durée de conservation du véhicule
    */
-  public void setAmortissement(int amortissement){
+  public void setAmortissement(int amortissement) throws ErrVal{
     if (amortissement < 0){
-      System.out.println("erreur durée de conservation du véhicule doit être positif");
-			amortissement = 0;
+      throw new ErrVal("La durée de conservation du véhicule doit être positive mais est " + distance);
     }
     this.amortissement = amortissement;
     if (possede == true){
@@ -119,8 +117,14 @@ public class Voiture extends Transport implements Serializable{
 
   /** constructeur de la classe Voiture
    */
-  public Voiture(){
+  public Voiture() throws ErrVal{
     this(false, Taille.P, 0, 0);
+    if (distance < 0){
+      throw new ErrVal("La distance parcourue en voiture doit être positive mais est " + distance);
+    }
+    if (amortissement < 0){
+      throw new ErrVal("La durée de conservation du véhicule doit être positive mais est " + distance);
+    }
   }
 
   /** constructeur de la classe Voiture
@@ -129,15 +133,13 @@ public class Voiture extends Transport implements Serializable{
    * @param distance qui est la distance parcourue en voiture par l'utilisateur
    * @param amortissement qui correspond a la durée de conservation du véhicule
    */
-  public Voiture(boolean possede, Taille taille, int distance, int amortissement){
+  public Voiture(boolean possede, Taille taille, int distance, int amortissement) throws ErrVal{
     super();
     if (distance < 0){
-      System.out.println("erreur le nombre de kilomètres parcourus par an doit être positif");
-			distance = 0;
+      throw new ErrVal("La distance parcourue en voiture doit être positive mais est " + distance);
     }
     if (amortissement < 0){
-      System.out.println("erreur durée de conservation du véhicule doit être positif");
-			amortissement = 0;
+      throw new ErrVal("La durée de conservation du véhicule doit être positive mais est " + distance);
     }
     this.possede = possede;
     this.taille = taille;

@@ -19,7 +19,10 @@ public enum CE {A(0.005),B(0.01),C(0.02),D(0.035),E(0.055),F(0.08),G(0.1);
     return alphaCE;
   }
 
-  public static CE value(String s){
+  public static CE value(String s) throws ErrVal{
+    if (!s.equals("A") && !s.equals("B") && !s.equals("C") && !s.equals("D") && !s.equals("E") && !s.equals("F") && !s.equals("G")){
+      throw new ErrVal("La chaine de caractère prise en argument doit être A,B,C,D,E,F ou G mais est " + s);
+    }
     if (s.equals("A")){
       return CE.A;
     }

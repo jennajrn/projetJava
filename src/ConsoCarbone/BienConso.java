@@ -12,11 +12,10 @@ public class BienConso extends ConsoCarbone implements Serializable{
   /** setter du montant et met à jour l'impact
    * @param montant est le montant des dépenses annuelles de l'utilisateur
    */
-  public void setMontant(double montant){
+  public void setMontant(double montant) throws ErrVal{
     if (montant < 0){
-			System.out.println("erreur le montant doit être positif");
-			montant = 0;
-		}
+      throw new ErrVal("Le montant doit être positif mais est " + montant);
+    }
     this.montant = montant;
     setImpact(this.montant / 1750);
   }
@@ -47,11 +46,10 @@ public class BienConso extends ConsoCarbone implements Serializable{
   /** constructeur de la classe BienConso
    * @param montant est le montant des dépenses annuelles de l'utilisateur
    */
-  public BienConso(double montant){
+  public BienConso(double montant) throws ErrVal{
     super();
     if (montant < 0){
-      System.out.println("erreur le montant doit être positif");
-      montant = 0;
+      throw new ErrVal("Le montant doit être positif mais est " + montant);
     }
     this.montant = montant;
     setImpact(this.montant / 1750);
@@ -59,7 +57,10 @@ public class BienConso extends ConsoCarbone implements Serializable{
 
   /** constructeur de la classe BienConso
    */
-  public BienConso(){
+  public BienConso() throws ErrVal{
     this(0);
+    if (montant < 0){
+      throw new ErrVal("Le montant doit être positif mais est " + montant);
+    }
   }
 }

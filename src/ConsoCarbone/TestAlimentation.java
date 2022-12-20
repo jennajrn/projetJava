@@ -13,9 +13,10 @@ public class TestAlimentation{
 
     @BeforeEach
     public void initAlimentation() {
-        try {
+        try{
             alimentationTest = new Alimentation();
-        } catch (ErrVal e) {
+        }
+        catch (ErrVal e){
             System.out.println(e.getMessage());
         }
     }
@@ -27,11 +28,12 @@ public class TestAlimentation{
 
     @Test
     public void setTxVegeTest(){
-        try {
+        try{
             alimentationTest.setTxVege(0.5);
             assertEquals(1.25, alimentationTest.getImpact());
             assertEquals(0.5, alimentationTest.getTxVege());
-        } catch (ErrVal e){
+        }
+        catch (ErrVal e){
             System.out.println(e.getMessage());
         }
     }
@@ -39,21 +41,23 @@ public class TestAlimentation{
     @ParameterizedTest
     @ValueSource(doubles = { 0.2, 0.5, 0.8 })
     public void getTxVegeTest(double arg){
-        try {
+        try{
             alimentationTest.setTxVege(arg);
             assertEquals(arg, alimentationTest.getTxVege());
-        } catch (ErrVal e){
+        }
+        catch (ErrVal e){
             System.out.println(e.getMessage());
         }
     }
 
     @Test
     public void setTxBoeufTest(){
-        try {
+        try{
             alimentationTest.setTxBoeuf(0.5);
             assertEquals(4.8, alimentationTest.getImpact());
             assertEquals(0.5, alimentationTest.getTxBoeuf());
-        } catch (ErrVal e){
+        }
+        catch (ErrVal e){
             System.out.println(e.getMessage());
         }
     }
@@ -64,7 +68,8 @@ public class TestAlimentation{
         try{
             alimentationTest.setTxBoeuf(arg);
             assertEquals(arg, alimentationTest.getTxBoeuf());
-        } catch (ErrVal e){
+        }
+        catch (ErrVal e){
             System.out.println(e.getMessage());
         }
     }
