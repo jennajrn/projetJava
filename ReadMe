@@ -1,0 +1,16 @@
+Pour compiler notre projet avec le Terminal:
+- se placer dans le dossier ProjetJava
+- executer la ligne de commande : javac ./ConsoCarbone/*.java
+- executer la ligne de commande : javac ./Utilisateur/*.java
+
+Nous avons fait le choix de creer un main pour chacun des packages ainsi qu'un main dans le menu interactif
+
+Pour executer notre projet avec le Terminal apres l'avoir compiler :
+- pour executer le main du package ConsoCarbone : java ConsoCarbone.Main
+- pour executer le main du package Utilisateur : java Utilisateur.Main
+- pour executer le main du menu interactif : java Utilisateur.Menu
+
+Pour pouvoir initialiser un utilisateur à partir d’un fichier texte, il faut tout d'abord écrire un objet de classe Utilisateur
+dans le fichier à l'aide du menu interactif Menu. Une fois le fichier contenant cet objet créé, il suffit de faire appel au constructeur
+Utilisateur avec comme argument le nom du fichier.
+C'est ce que nous avons effectué : le fichier est "Utilisateur.txt" et nous l'avons utilisé dans le main du package Utilisateur
