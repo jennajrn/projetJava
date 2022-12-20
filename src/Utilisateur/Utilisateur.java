@@ -342,6 +342,13 @@ public class Utilisateur implements Serializable{
       ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(nomFichier)));
       Utilisateur utilisateur = (Utilisateur) ois.readObject();
       ois.close();
+      this.alimentation = utilisateur.getAlimentation();
+      this.bienConso = utilisateur.getBienConso();
+      this.logements = utilisateur.getLogements();
+      this.avion = utilisateur.getAvion();
+      this.voiture = utilisateur.getVoiture();
+      this.trainEtBus = utilisateur.getTrainEtBus();
+      this.services = utilisateur.getServices();
     }
     catch(Exception e){
       e.printStackTrace();

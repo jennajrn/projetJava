@@ -31,7 +31,7 @@ public class TrainEtBus extends Transport implements Serializable{
    */
   @Override
   public String toString(){
-    return "Quand l’utilisateur.rice fait un trajet de " + super.distance + "km en train alors son impact est de " + getImpact() + " TCO2eq. id=" + super.id + "\n";
+    return "Quand l’utilisateur.rice parcourt " + super.distance + "km par an en train et en bus alors son impact est de " + getImpact() + " TCO2eq. id=" + super.id + "\n";
   }
 
   // Constructeurs

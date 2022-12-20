@@ -108,10 +108,10 @@ public class Voiture extends Transport implements Serializable{
       return "L’utilisateur.rice. ne possède pas de voiture alors l'impact des déplacements de l’utilisateur.rice sera de 0 TCO2eq. id=" + super.id + "\n";
     }
     else if (taille==Taille.P){
-      return "Quand l’utilisateur.rice. possède une petite voiture, que le nombre de kilomètres parcourus est " + super.distance + " par an et que la durée de conservation du véhicule est " + this.amortissement + ", l'impact de ces déplacements est " + getImpact() + " TCO2eq. id=" + super.id + "\n";
+      return "Quand l’utilisateur.rice. possède une petite voiture, que le nombre de kilomètres parcouru est " + super.distance + "km par an et que la durée de conservation du véhicule est " + this.amortissement + ", l'impact de ces déplacements est " + getImpact() + " TCO2eq. id=" + super.id + "\n";
     }
     else{
-      return "Quand l’utilisateur.rice. possède une grande voiture, que le nombre de kilomètres parcourus est " + super.distance + " par an et que la durée de conservation du véhicule est " + this.amortissement + ", l'impact de ces déplacements est " + getImpact() + " TCO2eq. id=" + super.id + "\n";
+      return "Quand l’utilisateur.rice. possède une grande voiture, que le nombre de kilomètres parcouru est " + super.distance + "km par an et que la durée de conservation du véhicule est " + this.amortissement + ", l'impact de ces déplacements est " + getImpact() + " TCO2eq. id=" + super.id + "\n";
     }
 	}
 

@@ -23,7 +23,7 @@ public abstract class Transport extends ConsoCarbone implements Serializable{
   /** affiche le detail de l'empreinte carbone moyenne des francais vis-a-vis des transports
    */
   public static void empreinteCarboneMoy(){
-		System.out.print("Empreinte carbone vis à vis des déplacements en train et bus : 85 Kg eq CO2/an" + "\n" + "Empreinte carbone vis à vis des déplacements en fret et messagerie : 383 Kg eq CO2/an" + "\n" + "Empreinte carbone vis à vis des déplacements en avion : 480 Kg eq CO2/an" + "\n" + "Empreinte carbone vis à vis des déplacements en voiture : 1972 Kg eq CO2/an" + "\n");
+		System.out.println("Empreinte carbone vis à vis des déplacements en train et bus : 85 Kg eq CO2/an" + "\n" + "Empreinte carbone vis à vis des déplacements en fret et messagerie : 383 Kg eq CO2/an" + "\n" + "Empreinte carbone vis à vis des déplacements en avion : 480 Kg eq CO2/an" + "\n" + "Empreinte carbone vis à vis des déplacements en voiture : 1972 Kg eq CO2/an" + "\n");
   }
 
   //Constructeurs

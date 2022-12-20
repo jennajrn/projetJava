@@ -47,7 +47,7 @@ public class Logement extends ConsoCarbone implements Serializable{
 	/** affiche le detail de l'empreinte carbone moyenne des francais vis-a-vis du logement
 	 */
 	public static void empreinteCarboneMoy(){
-		System.out.println("Empreinte carbone moyenne vis à vis des equipements des logements : 335 Kg eq CO2/an" + "\n" + "Empreinte carbone moyenne vis à vis des constructions et gros entretien : 675 Kg eq CO2/an" + "\n" + "Empreinte carbone moyenne vis à vis des énergies et utilités : 1696 Kg eq CO2/an");
+		System.out.println("Empreinte carbone moyenne vis à vis des equipements des logements : 335 Kg eq CO2/an" + "\n" + "Empreinte carbone moyenne vis à vis des constructions et gros entretien : 675 Kg eq CO2/an" + "\n" + "Empreinte carbone moyenne vis à vis des énergies et utilités : 1696 Kg eq CO2/an\n");
 	}
 
 	/** methode toString

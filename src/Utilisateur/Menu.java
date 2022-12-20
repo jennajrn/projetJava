@@ -42,7 +42,6 @@ public class Menu{
                 System.out.println("Avez vous une petite ou une grosse voiture ?");
                 String tailleVoiture = scan.nextLine();
                 Taille taille;
-                System.out.println(tailleVoiture);
                 if (tailleVoiture.equals("petite")){
                     taille = Taille.P;
                 }

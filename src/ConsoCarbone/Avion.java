@@ -20,7 +20,7 @@ public class Avion extends Transport implements Serializable{
    */
   public void setDistance(int distance) throws ErrVal{
     if (distance < 0){
-      throw new ErrVal("La distance parcourue en voiture doit être positive mais est " + distance);
+      throw new ErrVal("La distance parcourue en avion doit être positive mais est " + distance);
     }
     super.distance = distance;
     if (distance < 1000){
@@ -39,7 +39,7 @@ public class Avion extends Transport implements Serializable{
    */
   @Override
   public String toString(){
-    return "Quand l’utilisateur.rice fait un trajet de " + super.distance + "km en avion alors son impact est de " + getImpact() + " TCO2eq. id=" + super.id + "\n";
+    return "Quand l’utilisateur.rice parcourt " + super.distance + "km par an en avion alors son impact est de " + getImpact() + " TCO2eq. id=" + super.id + "\n";
   }
 
   // Constructeurs
@@ -71,7 +71,7 @@ public class Avion extends Transport implements Serializable{
   public Avion() throws ErrVal{
     this(0);
     if (distance < 0){
-      throw new ErrVal("La distance parcourue en voiture doit être positive mais est " + distance);
+      throw new ErrVal("La distance parcourue en avion doit être positive mais est " + distance);
     }
   }
 }

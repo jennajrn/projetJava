@@ -51,7 +51,7 @@ public class ConsoCarbone implements Comparable<ConsoCarbone>, Serializable{
   /** affiche l'empreinte carbone moyenne des Francais
   */
   public static void empreinteCarboneMoy(){
-    System.out.println("Empreinte carbone moyenne des Français : 12 092 kg/an" + "\n");
+    System.out.println("Empreinte carbone moyenne des Français : 12 092 Kg eq CO2/an" + "\n");
   }
 
   /** methode toString
