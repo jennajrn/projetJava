@@ -49,7 +49,6 @@ public class Main{
             System.out.println("Information sur l'ensemble des utilisateurs de la population : ");
             System.out.println(population.toString());
 
-            System.out.println("Mesures politiques afin de reduire l'empreinte carbone de la population : ");
             population.mesuresPolitiques();
 
         } catch (ErrVal e){

@@ -19,14 +19,17 @@ public class Menu{
         System.out.println("Tapez 0 pour sortir du menu.");
         System.out.println("Tapez 1 pour écrire un Utilisateur dans un fichier.");
         System.out.println("Tapez 2 pour lire un Utilisateur dans un fichier.");
+        System.out.println("Tapez 3 pour créer une population.");
     }
 
-    /** ecrit un objet de la classe Utilisateur dont les informations sont donnees par l'utilisateur, dans un fichier dont le nom est egalement donne par l'utilisateur
+
+    /** creer un objet de la classe Utilisateur a partir des donnees entrees par l'utilisateur
+     * @return l'objet de la classe Utilisateur qui a ete cree a l'aide des informations entrees par l'utilisateur
+     * @throws ErrVal afin de s'assurer que les valeurs entrees par l'utilisateur correspondent a ce qui est attendu
      */
-    public static void ecrireUtilisateur() throws ErrVal{
+    public static Utilisateur creerUtilisateur() throws ErrVal{
+        Utilisateur utilisateur = null;
         try{
-            System.out.println("Fichier dans lequel vous voulez écrire : ");
-            String s = scan.nextLine();
             System.out.println("Quel est votre taux de repas à base de boeuf ?");
             String txBoeuf = scan.nextLine();
             System.out.println("Quel est votre taux de repas végétariens ?");
@@ -37,6 +40,9 @@ public class Menu{
             BienConso bienConso = new BienConso(Double.valueOf(montant));
             System.out.println("Possedez vous une voiture (true si oui, false sinon) ?");
             String possedeVoiture = scan.nextLine();
+            if (!possedeVoiture.equals("true") && !possedeVoiture.equals("false")){
+                throw new ErrVal("il faut entrer true ou false mais vous avez entré " + possedeVoiture);
+            }
             Voiture voiture = null;
             if (Boolean.valueOf(possedeVoiture).booleanValue()){
                 System.out.println("Avez vous une petite ou une grosse voiture ?");
@@ -77,6 +83,9 @@ public class Menu{
             do{
                 System.out.println("Avez vous un autre logement (oui ou non) ?");
                 String autreLogement = scan.nextLine();
+                if (!autreLogement.equals("oui") && !autreLogement.equals("non")){
+                    throw new ErrVal("il faut entrer oui ou non mais vous avez entré " + autreLogement);
+                }
                 if (autreLogement.equals("oui")){
                     System.out.println("Quel est la superficie en m^2 de votre logement ?");
                     String superficie2 = scan.nextLine();
@@ -90,7 +99,22 @@ public class Menu{
                 }
             } while (quit == false);
             ServicesPublics services = new ServicesPublics();
-            Utilisateur utilisateur = new Utilisateur(alimentation, bienConso, logements, avion, voiture, trainEtBus, services);
+            utilisateur = new Utilisateur(alimentation, bienConso, logements, avion, voiture, trainEtBus, services);
+            return utilisateur;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return utilisateur;
+    }
+
+    /** ecrit un objet de la classe Utilisateur dont les informations sont donnees par l'utilisateur, dans un fichier dont le nom est egalement donne par l'utilisateur
+     */
+    public static void ecrireUtilisateur(){
+        try{
+            System.out.println("Fichier dans lequel vous voulez écrire : ");
+            String s = scan.nextLine();
+            Utilisateur utilisateur = creerUtilisateur();
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(s), true));
             oos.writeObject(utilisateur);
             oos.close();
@@ -116,6 +140,57 @@ public class Menu{
         }
     }
 
+    /** creer un objet de la classe Population a partir des donnees rentrees par l'utilisateur
+     * @throws ErrVal afin de s'assurer que les valeurs entrees par l'utilisateur correspondent a ce qui est attendu
+     */
+    public static void creerPopulation() throws ErrVal{
+        try{
+            Population population = new Population();
+            boolean quit = false;
+            do{
+                System.out.println("Donnez les informations sur l'utilisateur de votre population.");
+                Utilisateur utilisateur = creerUtilisateur();
+                population.addUtilisateur(utilisateur);
+                System.out.println("Voulez-vous ajouter un autre utilisateur à votre population (oui ou non)?");
+                String autreUtilisateur = scan.nextLine();
+                if (!autreUtilisateur.equals("oui") && !autreUtilisateur.equals("non")){
+                    throw new ErrVal("il faut entrer oui ou non mais vous avez entré " + autreUtilisateur);
+                }
+                if (autreUtilisateur.equals("non")){
+                    quit = true;
+                }
+            }while (quit == false);
+            boolean quit1 = false;
+            while (quit1 == false){
+                System.out.println("Voulez-vous afficher les informations concernant un utilisateur (oui ou non)?");
+                String displayUtilisateur = scan.nextLine();
+                if (!displayUtilisateur.equals("oui") && !displayUtilisateur.equals("non")){
+                    throw new ErrVal("il faut entrer oui ou non mais vous avez entré " + displayUtilisateur);
+                }
+                if (displayUtilisateur.equals("oui")){
+                    System.out.println("Quel est l'id de cet utilisateur ?");
+                    String n = scan.nextLine();
+                    population.display(Integer.valueOf(n));
+                }
+                else{
+                    quit1 = true;
+                }
+            }
+            System.out.println("Voulez-vous afficher les informations concernant l'ensemble des utilisateurs de la population (oui ou non)?");
+            String toStringPopulation = scan.nextLine();
+            if (!toStringPopulation.equals("oui") && !toStringPopulation.equals("non")){
+                throw new ErrVal("il faut entrer oui ou non mais vous avez entré " + toStringPopulation);
+            }
+            if (toStringPopulation.equals("oui")){
+                System.out.println(population.toString());
+            }
+            population.mesuresPolitiques();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args){
         try{
             boolean quit = false;
@@ -132,6 +207,9 @@ public class Menu{
                         break;
                     case(2):
                         lireUtilisateur();
+                        break;
+                    case(3):
+                        creerPopulation();
                         break;
                     default:
                         System.out.println("Cette valeur ne fait pas partie des possibilités.");

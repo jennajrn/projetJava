@@ -14,6 +14,13 @@ public class Population{
         population = new ArrayList<Utilisateur>();
     }
 
+    /** getter de population
+     * @return la liste d'objet de la classe Utilisateur population
+     */
+    public ArrayList<Utilisateur> getPopulation(){
+        return population;
+    }
+
     /** methode qui permet de rajouter un objet de la classe Utilisateur à la liste
      * @param utilisateur qui correspond à l'objet à rajouter dans la liste
      */
@@ -75,6 +82,7 @@ public class Population{
         }
         double impactMoyen = impactVoitures/population.size();
         if (impactMoyen>1.972){
+            System.out.println("Mesures politiques afin de reduire l'empreinte carbone de la population : ");
             System.out.println("L’empreinte carbone de la population concernant les déplacements en voiture est trop élevé, nous imposons un dimanche sans voiture.");
         }
         boolean found = false;
@@ -84,6 +92,9 @@ public class Population{
             }
         }
         if(found){
+            if (impactMoyen<=1.972){
+                System.out.println("Mesures politiques afin de reduire l'empreinte carbone de la population : ");
+            }
             System.out.println("La consommation énergétique du ou des logement(s) de certains utilisateurs est trop élevée, nous incitions ces personnes à la rénovation énergétique de leur(s) logement(s).");
         }
     }
