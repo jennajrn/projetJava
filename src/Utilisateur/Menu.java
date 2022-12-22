@@ -22,7 +22,6 @@ public class Menu{
         System.out.println("Tapez 3 pour créer une population.");
     }
 
-
     /** creer un objet de la classe Utilisateur a partir des donnees entrees par l'utilisateur
      * @return l'objet de la classe Utilisateur qui a ete cree a l'aide des informations entrees par l'utilisateur
      * @throws ErrVal afin de s'assurer que les valeurs entrees par l'utilisateur correspondent a ce qui est attendu
