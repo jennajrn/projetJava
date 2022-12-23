@@ -8,12 +8,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** La classe TestAlimentation permet de faire des test sur certaines méthodes de la classe Alimentation
+/** La classe TestAlimentation permet de faire des test sur certaines methodes de la classe Alimentation
  */
 public class TestAlimentation{
     private Alimentation alimentationTest;
 
-    /** méthode effectuée avant chaque test afin d'initialiser l'objet alimentationTest
+    /** methode effectuee avant chaque test afin d'initialiser l'objet alimentationTest
      */
     @BeforeEach
     public void initAlimentation() {
@@ -25,14 +25,14 @@ public class TestAlimentation{
         }
     }
 
-    /** méthode effectuée après chaque test afin de remettre à null l'objet alimentationTest
+    /** methode effectuee apres chaque test afin de remettre a null l'objet alimentationTest
      */
     @AfterEach
     public void undefAlimentation() {
         alimentationTest = null;
     }
 
-    /** méthode qui test la méthode setTxVege de la classe Alimentation
+    /** methode qui test la methode setTxVege de la classe Alimentation
      */
     @Test
     public void setTxVegeTest(){
@@ -46,8 +46,8 @@ public class TestAlimentation{
         }
     }
 
-    /** méthode qui test la méthode getTxVege de la classe Alimentation
-     * @param arg qui est la valeur à tester
+    /** méthode qui test la methode getTxVege de la classe Alimentation
+     * @param arg qui est la valeur a tester
      */
     @ParameterizedTest
     @ValueSource(doubles = { 0.2, 0.5, 0.8 })
@@ -61,7 +61,7 @@ public class TestAlimentation{
         }
     }
 
-    /** méthode qui test la méthode setTxBoeuf de la classe Alimentation
+    /** methode qui test la methode setTxBoeuf de la classe Alimentation
      */
     @Test
     public void setTxBoeufTest(){
@@ -75,7 +75,7 @@ public class TestAlimentation{
         }
     }
 
-    /** méthode qui test la méthode getTxBoeuf de la classe Alimentation
+    /** methode qui test la methode getTxBoeuf de la classe Alimentation
      * @param arg qui est la valeur à tester
      */
     @ParameterizedTest
@@ -90,7 +90,7 @@ public class TestAlimentation{
         }
     }
 
-    /** méthode qui test la méthode toString de la classe Alimentation
+    /** methode qui test la methode toString de la classe Alimentation
      */
     @Test
     public void toStringTest(){

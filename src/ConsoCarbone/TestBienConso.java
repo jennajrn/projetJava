@@ -7,12 +7,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** La classe TestBienConso permet de faire des test sur certaines méthodes de la classe BienConso
+/** La classe TestBienConso permet de faire des test sur certaines methodes de la classe BienConso
  */
 public class TestBienConso{
     private BienConso bienConsoTest;
 
-    /** méthode effectuée avant chaque test afin d'initialiser l'objet bienConsoTest
+    /** methode effectuee avant chaque test afin d'initialiser l'objet bienConsoTest
      */
     @BeforeEach
     public void initBienConso(){
@@ -24,14 +24,14 @@ public class TestBienConso{
         }
     }
 
-    /** méthode effectuée après chaque test afin de remettre à null l'objet bienConsoTest
+    /** methode effectuee après chaque test afin de remettre à null l'objet bienConsoTest
      */
     @AfterEach
     public void undefBienConso(){
         bienConsoTest = null;
     }
 
-    /** méthode qui test la méthode setMontant de la classe BienConso
+    /** methode qui test la methode setMontant de la classe BienConso
      */
     @Test
     public void setMontantTest(){
@@ -45,7 +45,7 @@ public class TestBienConso{
         }
     }
 
-    /** méthode qui test la méthode getMontant de la classe BienConso
+    /** methode qui test la methode getMontant de la classe BienConso
      * @param arg qui est la valeur à tester
      */
     @ParameterizedTest
@@ -60,7 +60,7 @@ public class TestBienConso{
         }
     }
 
-    /** méthode qui test la méthode toString de la classe BienConso
+    /** methode qui test la methode toString de la classe BienConso
      */
     @Test
     public void toStringTest(){

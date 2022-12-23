@@ -17,7 +17,7 @@ public class Logement extends ConsoCarbone implements Serializable{
 		return superficie;
 	}
 
-	/** actualiser les variables superficie et impact
+	/** setter de superficie et met a jour l'impact
 	 * @param superficie qui est la superficie du logement de l'utilisateur
 	 * @throws ErrVal afin de s'assurer que superficie soit positif
 	 */
@@ -36,7 +36,7 @@ public class Logement extends ConsoCarbone implements Serializable{
 		return ce;
 	}
 
-	/** setter de la classe energetique ce
+	/** setter de la classe energetique ce et met a jour l'impact
 	 * @param ce qui est la classe energetique du logement de l'utilisateur
 	 */
 	public void setCe(CE ce){

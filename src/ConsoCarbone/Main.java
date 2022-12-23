@@ -44,15 +44,15 @@ public class Main{
       System.out.println(consoBC.toString()); //renvoie la méthode toString de la classe BienConso
       //consoAl.getTxVege(); renvoie une erreur car consoAl est déclaré comme un objet de la classe ConsoCarbone
 
-      System.out.println(consoAl instanceof ConsoCarbone);
-      System.out.println(consoAl instanceof Alimentation);
-      System.out.println(alimentation instanceof ConsoCarbone);
-      System.out.println(alimentation instanceof Alimentation);
-      System.out.println(avion instanceof ConsoCarbone);
-      System.out.println(avion instanceof Transport);
-      System.out.println(consoAv instanceof ConsoCarbone);
-      System.out.println(consoAv instanceof Transport);
-      System.out.println(consoAv instanceof Avion);
+      //System.out.println(consoAl instanceof ConsoCarbone);
+      //System.out.println(consoAl instanceof Alimentation);
+      //System.out.println(alimentation instanceof ConsoCarbone);
+      //System.out.println(alimentation instanceof Alimentation);
+      //System.out.println(avion instanceof ConsoCarbone);
+      //System.out.println(avion instanceof Transport);
+      //System.out.println(consoAv instanceof ConsoCarbone);
+      //System.out.println(consoAv instanceof Transport);
+      //System.out.println(consoAv instanceof Avion);
     }
     catch (ErrVal e){
       System.out.println(e.getMessage());

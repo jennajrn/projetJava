@@ -13,7 +13,7 @@ public class Alimentation extends ConsoCarbone implements Serializable{
 	private double txBoeuf; //valeur entre 0 et 1
 	private double txVege; //valeur entre 0 et 1
 
-	/** setter de txBoeuf
+	/** setter de txBoeuf et met à jour l'impact
 	 * @param txBoeuf qui est le taux de repas a base de boeuf
 	 * @throws ErrVal afin de s'assurer que txBoeuf soit compris entre 0 et 1
 	 */
@@ -32,7 +32,7 @@ public class Alimentation extends ConsoCarbone implements Serializable{
 		return txBoeuf;
 	}
 
-	/** setter de txVege
+	/** setter de txVege et met à jour l'impact
 	 * @param txVege qui est le le taux de repas vegetariens
 	 * @throws ErrVal afin de s'assurer que txVege soit compris entre 0 et 1
 	 */

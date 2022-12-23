@@ -21,15 +21,15 @@ public class Population{
         return population;
     }
 
-    /** methode qui permet de rajouter un objet de la classe Utilisateur à la liste
-     * @param utilisateur qui correspond à l'objet à rajouter dans la liste
+    /** methode qui permet de rajouter un objet de la classe Utilisateur a la liste
+     * @param utilisateur qui correspond a l'objet a rajouter dans la liste
      */
     public void addUtilisateur(Utilisateur utilisateur){
         population.add(utilisateur);
     }
 
     /** methode qui permet d'afficher les informations de l'utilisateur ayant n comme id
-     * @param n qui correspond à l'id de l'utilisateur dont ont veut afficher les informations
+     * @param n qui correspond a l'id de l'utilisateur dont ont veut afficher les informations
      */
     public void display(int n){
         boolean found = false;
@@ -55,7 +55,7 @@ public class Population{
     }
 
     /** methode qui permet de supprimer l'utilisateur ayant n comme id dans la liste
-     * @param n qui correpond à l'id de l'utilisateur que l'on souhaite supprimet
+     * @param n qui correpond a l'id de l'utilisateur que l'on souhaite supprimer
      */
     public void removeUtilisateur(int n){
         boolean found = false;

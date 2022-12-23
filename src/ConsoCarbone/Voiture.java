@@ -2,7 +2,7 @@ package ConsoCarbone;
 
 import java.io.Serializable;
 
-/** Un objet Voiture est un Transport qui calcule l’empreinte carbone concernant les déplacements en voiture
+/** Un objet Voiture est un Transport qui calcule l’empreinte carbone concernant les deplacements en voiture
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */
@@ -11,7 +11,7 @@ public class Voiture extends Transport implements Serializable{
   private Taille taille;
   private int amortissement; //positif
 
-  /** setter de possede
+  /** setter de possede et met a jour l'impact
    * @param possede qui est un boolean indiquant si l'utilisateur possede une voiture
    */
   public void setPossede(boolean possede){
@@ -31,7 +31,7 @@ public class Voiture extends Transport implements Serializable{
     return possede;
   }
 
-  /** setter de taille
+  /** setter de taille et met a jour l'impact
    * @param taille qui correspond a la taille du vehicule (P correspondant a petite voiture et G pour grosse voiture)
    */
   public void setTaille(Taille taille){
@@ -51,7 +51,7 @@ public class Voiture extends Transport implements Serializable{
     return taille;
   }
 
-  /** setter de distance
+  /** setter de distance et met a jour l'impact
    * @param distance qui est la distance parcourue en voiture par l'utilisateur
    * @throws ErrVal afin de s'assurer que distance soit positif
    */
@@ -75,8 +75,8 @@ public class Voiture extends Transport implements Serializable{
     return distance;
   }
 
-  /** setter de amortissement
-   * @param amortissement qui correspond a la durée de conservation du véhicule
+  /** setter de amortissement et met a jour l'impact
+   * @param amortissement qui correspond a la dureee de conservation du véhicule
    * @throws ErrVal afin de s'assurer que amortissement soit positif
    */
   public void setAmortissement(int amortissement) throws ErrVal{
@@ -134,7 +134,7 @@ public class Voiture extends Transport implements Serializable{
    * @param possede qui est un boolean indiquant si l'utilisateur possede une voiture
    * @param taille qui correspond a la taille du vehicule (P correspondant a petite voiture et G pour grosse voiture)
    * @param distance qui est la distance parcourue en voiture par l'utilisateur
-   * @param amortissement qui correspond a la durée de conservation du véhicule
+   * @param amortissement qui correspond a la duree de conservation du véhicule
    * @throws ErrVal afin de s'assurer que distance et amortissement soient positifs
    */
   public Voiture(boolean possede, Taille taille, int distance, int amortissement) throws ErrVal{

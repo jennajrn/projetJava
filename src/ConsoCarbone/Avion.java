@@ -2,7 +2,7 @@ package ConsoCarbone;
 
 import java.io.Serializable;
 
-/** Un objet Avion est un Transport qui calcule l’empreinte carbone concernant les déplacements en avion
+/** Un objet Avion est un Transport qui calcule l’empreinte carbone concernant les deplacements en avion
  * @author Jenna JOURNO Shana BAROUKH
  * @version 1.0
 */

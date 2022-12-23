@@ -332,8 +332,8 @@ public class Utilisateur implements Serializable{
     this.services = services;
   }
 
-  /** constructeur de la classe Utilisateur qui permet d'initialiser un utilisateur à partir d’un fichier texte
-   * @param nomFichier qui est une chaîne de caractère correpondant au nom du fichier texte
+  /** constructeur de la classe Utilisateur qui permet d'initialiser un utilisateur a partir d’un fichier texte
+   * @param nomFichier qui est une chaine de caractere correpondant au nom du fichier texte
    */
   public Utilisateur(String nomFichier){
     cpt++;

@@ -13,7 +13,7 @@ public class ConsoCarbone implements Comparable<ConsoCarbone>, Serializable{
 
   /** permet de comparer deux instances de ConsoCarbone en fonction de leur impact
    * @param c l'instance que l'on compare
-   * @return 0 si c'est le même impact, 1 si l'impact de l'objet prit en parametre est inferieur et -1 si l'impact de l'objet prit en parametre est superieur
+   * @return 0 si c'est le meme impact, 1 si l'impact de l'objet prit en parametre est inferieur et -1 si l'impact de l'objet prit en parametre est superieur
   */
   public int compareTo(ConsoCarbone c){
     if (c.getImpact() == this.getImpact()){
@@ -35,7 +35,7 @@ public class ConsoCarbone implements Comparable<ConsoCarbone>, Serializable{
   }
 
   /** setter de l'impact
-   * @param impact est l'impact de l'utilisateur en termes d’émissions de GES en TCO2eq
+   * @param impact est l'impact de l'utilisateur en termes d’emissions de GES en TCO2eq
    */
   public void setImpact(double impact){
     this.impact = impact;
